@@ -1,0 +1,51 @@
+mcms:
+  enabled: true
+  image: 
+    tag: dev-ada354f9
+  ingress:
+    enabled: true
+  ingress:
+    enabled: true
+  envs:
+    CLUSTER_KEYCLOAK_RUNNER_ENABLED: "true"
+    CLUSTER_KEYCLOAK_REDIRECT_URI: https://frontend.aaamedia.aaamedia-cluster.aws.gok.exxeta.info
+    APP_CORS_ALLOWED_ORIGINS: https://frontend.aaamedia.aaamedia-cluster.aws.gok.exxeta.info,http://localhost:3000
+    SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI: https://keycloak.aaamedia.aaamedia-cluster.aws.gok.exxeta.info/realms/d2-24-mcms-services
+
+frontend:
+  enabled: true
+  image: 
+    tag: dev-479c7962
+  ingress:
+    enabled: true
+  ingress:
+    enabled: true
+
+keycloak:
+  enabled: true
+  extraEnvVars:
+    - name: KC_HOSTNAME_STRICT
+      value: "false"
+    - name: KC_PROXY_HEADERS
+      value: xforwarded
+    - name: KC_HOSTNAME_STRICT_HTTPS
+      value: "false"
+    - name: KC_HTTP_ENABLED
+      value: "true"
+    - name: KC_HEALTH_ENABLED
+      value: "true"
+  postgresql:
+    enabled: false
+  externalDatabase:
+    host: ""
+    port: 5432
+    user: bn_keycloak
+    database: bitnami_keycloak
+    password: "" 
+    existingSecret: ""
+    existingSecretHostKey: ""
+    existingSecretPortKey: ""
+    existingSecretUserKey: ""
+    existingSecretDatabaseKey: ""
+    existingSecretPasswordKey: ""
+    annotations: {}
