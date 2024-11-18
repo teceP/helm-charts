@@ -1,0 +1,15 @@
+dependencies:
+- name: mcms
+  repository: file://../mcms
+  version: 0.1.0
+- name: frontend
+  repository: file://../frontend
+  version: 0.1.0
+- name: keycloak
+  repository: https://charts.bitnami.com/bitnami
+  version: 24.1.0
+- name: postgresql
+  repository: https://charts.bitnami.com/bitnami
+  version: 16.2.1
+digest: sha256:ff816d0171ed0d455f6ab7e7f244298a5114169e1f3caf2505304e97f7574fcc
+generated: "2024-11-18T12:09:13.530609+01:00"

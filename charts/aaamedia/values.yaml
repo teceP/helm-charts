@@ -18,3 +18,10 @@ frontend:
 
 keycloak:
   enabled: false
+  ## Bitnami/Keycloak Charts comes with PSQL Database, default enabled.
+  ## We want to use the PSQL Database also for mcms backend, so we create our own.
+  postgresql: 
+    enabled: false
+
+psql:
+  enabled: false
