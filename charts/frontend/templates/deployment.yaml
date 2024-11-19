@@ -58,6 +58,13 @@ spec:
             - name: {{ quote $key }}
               value: {{ quote $value }}
             {{- end }}
+            {{- range .Values.envsFromSecret }}
+            - name: {{ .name }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .secret }}
+                  key: {{ .key }}
+            {{- end }}
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:

@@ -133,3 +133,10 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+env: {}
+
+envsFromSecret: []
+  #- name: ENV_VAR
+  #  secret: kub-secret
+  #  key: key-in-secret
