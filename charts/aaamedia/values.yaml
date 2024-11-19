@@ -11,7 +11,7 @@ global:
     pullPolicy: Always
 
 mcms:
-  enabled: false
+  enabled: true
 
 frontend:
   enabled: false
