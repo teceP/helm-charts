@@ -30,19 +30,19 @@ spec:
       serviceAccountName: {{ include "frontend.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-    initContainers:
-      {{- range .Values.waitFor }}
-        - name: wait-for-{{ . }}
-          image: busybox:1.28.2
-          command: ['sh', '-c', 'until nslookup {{ . }}; do echo waiting for {{ . }}; sleep 5; done;']
-          resources:
-            limits:
-              cpu: 20m
-              memory: 64Mi
-            requests:
-              cpu: 20m
-              memory: 64Mi
-        {{- end }}
+      initContainers:
+        {{- range .Values.waitFor }}
+          - name: wait-for-{{ . }}
+            image: busybox:1.28.2
+            command: ['sh', '-c', 'until nslookup {{ . }}; do echo waiting for {{ . }}; sleep 5; done;']
+            resources:
+              limits:
+                cpu: 20m
+                memory: 64Mi
+              requests:
+                cpu: 20m
+                memory: 64Mi
+          {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
