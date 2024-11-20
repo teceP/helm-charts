@@ -126,16 +126,18 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
-# Additional volumes on the output Deployment definition.
-volumes:
-  - name: mcms-storage
-    persistentVolumeClaim:
-      claimName: mcms-storage
+persistence:
+  enabled: true
+  # Additional volumes on the output Deployment definition.
+  volumes:
+    - name: mcms-storage
+      persistentVolumeClaim:
+        claimName: mcms-storage
 
-# Additional volumeMounts on the output Deployment definition.
-volumeMounts:
-  - name: mcms-storage
-    mountPath: /mcms/storage
+  # Additional volumeMounts on the output Deployment definition.
+  volumeMounts:
+    - name: mcms-storage
+      mountPath: /mcms/storage
 
 nodeSelector: {}
 
