@@ -19,6 +19,9 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+command: []
+args: []
+
 #This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/
 serviceAccount:
   # Specifies whether a service account should be created
@@ -62,11 +65,7 @@ service:
 ingress:
   enabled: false
   className: "nginx"
-  annotations:
-    cert-manager.io/cluster-issuer: dns01-issuer
-    certmanager.k8s.io/acme-challenge-type: dns01
-    certmanager.k8s.io/acme-dns01-provider: route53
-    nginx.ingress.kubernetes.io/proxy-body-size: 100m
+  annotations: {}
   hosts:
     - host: mcms.aaamedia.aaamedia-cluster.aws.gok.exxeta.info
       paths:
