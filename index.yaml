@@ -3,6 +3,34 @@ entries:
   aaamedia:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-11-28T07:53:45.313235556Z"
+    dependencies:
+    - condition: mcms.enabled
+      name: mcms
+      repository: file://../mcms
+      version: 0.1.0
+    - condition: frontend.enabled
+      name: frontend
+      repository: file://../frontend
+      version: 0.1.0
+    - condition: keycloak.enabled
+      name: keycloak
+      repository: https://charts.bitnami.com/bitnami
+      version: 24.1.0
+    - alias: psql
+      condition: psql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.2.1
+    description: A Helm chart for Kubernetes
+    digest: 3a920552b553bb294e1ab40cc5ea0e8d8da292f4bfc8f4afaaec2c59e1f163d8
+    name: aaamedia
+    type: application
+    urls:
+    - aaamedia-0.5.8.tgz
+    version: 0.5.8
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-11-28T07:42:53.794478404Z"
     dependencies:
     - condition: mcms.enabled
@@ -326,4 +354,4 @@ entries:
     urls:
     - mcms-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-28T07:42:53.959677853Z"
+generated: "2024-11-28T07:53:45.41699346Z"
